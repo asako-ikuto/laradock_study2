@@ -28,6 +28,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function microposts()
+    {
+        return $this->hasMany('App\Micropost');
+    }
+
     /**
      * The attributes that should be cast to native types.
      *
