@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MicropostsRequest extends FormRequest
+class PostsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class MicropostsRequest extends FormRequest
      */
     public function authorize()
     {
-        if ($this->path() == 'microposts' || 'microposts/{micropost}') {
+        if ($this->path() == 'posts' || 'posts/{post}') {
             return true;
         } else {
             return false;

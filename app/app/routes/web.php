@@ -19,8 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/microposts', 'MicropostsController@index')->name('index');
+Route::get('/posts', 'PostsController@index')->name('index');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('microposts', 'MicropostsController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
+    Route::resource('posts', 'PostsController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
 });

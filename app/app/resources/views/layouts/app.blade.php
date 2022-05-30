@@ -52,10 +52,10 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/microposts') }}">{{ __('みんなの投稿') }}</a>
+                            <a class="nav-link" href="{{ url('/posts') }}">{{ __('みんなの投稿') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/microposts/create') }}">{{ __('投稿を作成') }}</a>
+                            <a class="nav-link" href="{{ url('/posts/create') }}">{{ __('投稿を作成') }}</a>
                         </li>
                         <!-- Authentication Links -->
                         @guest

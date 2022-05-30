@@ -12,20 +12,19 @@
             </div>
         @endif
         <div class="justify-content-center">
-            <form method="POST" action="{{ route('microposts.update', $micropost->id) }}">
-                @method('PUT')
+            <form method="POST" action="{{ route('posts.store') }}">
                 @csrf
                 <div class="form-group">
                     <div class="form-group">
                         <label for="title">タイトル</label>
-                        <input type="text" class="form-control" name="title" value="{{ $micropost->title }}">
+                        <input type="text" class="form-control" name="title">
                     </div>
                     <div class="form-group">
                         <label for="content">コンテンツ</label>
-                        <textarea class="form-control" name="content" rows="10">{{ $micropost->content }}</textarea>
+                        <textarea class="form-control" name="content" rows="10"></textarea>
                     </div>
                     <button type="submit" class="btn btn-success">
-                        {{ __('編集完了') }}
+                        {{ __('新規投稿') }}
                     </button>
                 </div>
             </form>

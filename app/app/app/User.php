@@ -28,9 +28,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function microposts()
+    public function posts()
     {
-        return $this->hasMany('App\Micropost');
+        return $this->hasMany('App\Post');
     }
 
     /**
