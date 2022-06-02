@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use Auth;
 use Illuminate\Http\Request;
-use App\Http\Requests\postsRequest;
+use App\Http\Requests\PostsRequest;
 
 class PostsController extends Controller
 {

@@ -29,9 +29,26 @@
                         </div>
                     @endif
                     <div style="display:inline-block;" class="ml-4">
-                        <i class="fa-regular fa-heart"></i>
+                        @if (!Auth::check())
+                            <i class="fa-regular fa-heart"></i>
+                        @elseif (Auth::check() &&
+                            $post->like_users()->where('user_id', auth()->user()->id)->exists())
+                            <form action="{{ route('unlikes', $post) }}" method="POST">
+                                @csrf
+                                <button style="border: none; background-color: transparent; outline: none;">
+                                    <i class="fa-solid fa-heart"></i>
+                                </button>
+                            </form>
+                        @else
+                            <form action="{{ route('likes', $post) }}" method="POST">
+                                @csrf
+                                <button style="border: none; background-color: transparent; outline: none;">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </form>
+                        @endif
                     </div>
-                    <p style="display:inline-block;" class="ml-4">1</p>
+                    <p style="display:inline-block;" class="ml-4">{{ $post->like_users()->count() }}</p>
                 </div>
                 <hr>
             @endforeach
