@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\LikesController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -23,4 +25,6 @@ Route::get('/posts', 'PostsController@index')->name('index');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('posts', 'PostsController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
+    Route::post('posts/{post}/likes', 'LikesController@store')->name('likes');
+    Route::post('posts/{post}/unlikes', 'LikesController@destroy')->name('unlikes');
 });

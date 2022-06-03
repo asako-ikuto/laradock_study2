@@ -33,6 +33,16 @@ class User extends Authenticatable
         return $this->hasMany('App\Post');
     }
 
+    public function likes()
+    {
+        return $this->belongsToMany('App\Post', 'likes')->withTimestamps();
+    }
+
+    public function is_like($postId)
+    {
+        return $this->likes()->where('post_id', $postId)->exists();
+    }
+
     /**
      * The attributes that should be cast to native types.
      *
